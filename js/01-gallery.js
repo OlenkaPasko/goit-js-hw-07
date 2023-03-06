@@ -49,7 +49,6 @@ function openModal(event) {
   instance.show();
 }
 function onLinkClick(event) {
-  if (event.code === "Escape") return; 
-    instance.close();
-  }
-
+  if (event.code === "Escape") return;
+  instance.close();
+}
