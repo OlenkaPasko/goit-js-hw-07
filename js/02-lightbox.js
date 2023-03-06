@@ -5,24 +5,27 @@ console.log(galleryItems);
 
 const gallery = document.querySelector(".gallery");
 
-const createGallery = (items) => {
-  const result = createGallery.map(
-    (item) => `<a class="gallery__item" href="${item.original}">
+const createGallery = galleryItems
+  .map(
+    ({
+      preview,
+      original,
+      description,
+    }) => `<a class="gallery__item" href="${original}">
   <img class="gallery__image" 
-  src="${item.preview} 
-  alt=${item.description}" />
+  src="${preview} 
+  alt=${description}" />
 </a>`
-  );
-  return result;
-};
-console.log(createGallery);
+  )
+  .join("");
+gallery.insertAdjacentHTML("beforeend", createGallery);
 //При використанні окремого варіанту (`simple-lightbox(.min).js`)
 //var lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 //let gallery = new SimpleLightbox('.gallery a');
 //gallery.on('show.simplelightbox', function () {
-	// do something…
+// do something…
 //});
 
 //gallery.on('error.simplelightbox', function (e) {
-	console.log(e); // some usefull information
+console.log(e); // some usefull information
 //});
