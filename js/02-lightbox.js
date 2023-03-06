@@ -19,6 +19,13 @@ const createGallery = galleryItems
   )
   .join("");
 gallery.insertAdjacentHTML("beforeend", createGallery);
+
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  captionPosition: "bottom",
+});
+
 //При використанні окремого варіанту (`simple-lightbox(.min).js`)
 //var lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 //let gallery = new SimpleLightbox('.gallery a');
@@ -27,5 +34,11 @@ gallery.insertAdjacentHTML("beforeend", createGallery);
 //});
 
 //gallery.on('error.simplelightbox', function (e) {
-console.log(e); // some usefull information
+ // some usefull information
 //});
+
+///For the default setup, you just need links that are pointing to images.
+//div class="gallery">
+    //<a href="images/image1.jpg"><img src="images/thumbs/thumb1.jpg" alt="" title=""/></a>
+   // <a href="images/image2.jpg"><img src="images/thumbs/thumb2.jpg" alt="" title="Beautiful Image"/></a>
+//</div>
