@@ -18,7 +18,34 @@ console.log(galleryItems);
 const instance = basicLightbox.create(`
     <img src="assets/images/image.png" width="800" height="600">
 `);
-<div class="gallery__item">
+const gallery = document.querySelector(".gallery");
+const createGallery = createGalleryItems(galleryItems);
+gallery.insertAdjacentHTML("beforeend", createGallery);
+
+function createGalleryItems(items) {
+  return items
+    .map(({ preview, original, description }) => {
+      return `<div class="gallery__item">
+  <a class="gallery__link" href="${original}">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</div>`;
+    })
+    .join("");
+}
+
+
+//const markup = newTechnologies
+  //.map((technology) => `<li class="list-item new">${technology}</li>`)
+  //.join("");
+
+
+/*<div class="gallery__item">
   <a class="gallery__link" href="large-image.jpg">
     <img
       class="gallery__image"
@@ -28,3 +55,25 @@ const instance = basicLightbox.create(`
     />
   </a>
 </div>;
+const createImage = (item, parent) => {
+  const { preview, original, description } = item;
+  const img = document.createElement('img');
+  
+  img.classList.add('gallery__image');
+  img.dataset.source = original;
+  img.src = preview;
+  img.alt = description;
+  
+  parent.appendChild(img);
+};
+
+const list = document.querySelector(".list");
+
+const newTechnologies = ["React", "TypeScript", "Node.js"];
+const markup = newTechnologies
+  .map((technology) => `<li class="list-item new">${technology}</li>`)
+  .join("");
+
+list.insertAdjacentHTML("beforeend", markup);
+list.insertAdjacentHTML("beforebegin", "<h2>Popular technologies</h2>");
+console.log(_)*/
