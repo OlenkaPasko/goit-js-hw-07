@@ -15,15 +15,15 @@ console.log(galleryItems);
 Використовуй готову розмітку модального вікна із 
 зображенням з прикладів бібліотеки basicLightbox.*/
 
-const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
-`);
+const instance = basicLightbox.create(
+  `<img width="1280" height="auto" src="">`
+);
 const gallery = document.querySelector(".gallery");
 const createGallery = createGalleryItems(galleryItems);
 gallery.insertAdjacentHTML("beforeend", createGallery);
 
 function createGalleryItems(items) {
-  return items
+  return galleryItems
     .map(({ preview, original, description }) => {
       return `<div class="gallery__item">
   <a class="gallery__link" href="${original}">
